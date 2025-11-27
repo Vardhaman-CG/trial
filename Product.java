@@ -19,7 +19,9 @@ public class Product {
 
 }
 //kavya
-
+ public Product() {
+        super();
+    }
 
 
 ///praharshini
@@ -40,4 +42,5 @@ public class Product {
 
 
 //pranav
+
 
