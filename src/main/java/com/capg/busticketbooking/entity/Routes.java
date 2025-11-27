@@ -6,7 +6,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
-import java.util.List;
+
+import java.util.*;
 
 @Entity
 @Table(name = "routes")
@@ -40,5 +41,5 @@ public class Routes {
 
     // One Route can have many Trips
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
-    private List<Trip> trips;
+    private List<Trips> trips;
 }
