@@ -28,7 +28,7 @@ public class Reviews {
     @ManyToOne
     @JoinColumn(name = "trip_id", nullable = false)
     @NotNull(message = "Trip must not be null")
-    private Trip trip;
+    private Trips trip;
 
     @NotNull(message = "Rating must not be null")
     @Min(value = 1, message = "Rating must be at least 1")

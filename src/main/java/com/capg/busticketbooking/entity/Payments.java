@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Payment {
+public class Payments {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class Payment {
     @ManyToOne
     @JoinColumn(name = "booking_id", nullable = false)
     @NotNull(message = "Booking must not be null")
-    private Booking booking;
+    private Bookings booking;
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
