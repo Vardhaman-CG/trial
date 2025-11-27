@@ -1,4 +1,4 @@
-
+package com.capg.busticketbooking.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Address {
+public class Addresses {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
