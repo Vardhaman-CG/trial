@@ -34,7 +34,44 @@ public class Product {
 
 //sanks
 
+package com.capg.studentcrudapi;
 
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.capg.studentcrudapi.Entity.Address;
+import com.capg.studentcrudapi.Entity.Student;
+import com.capg.studentcrudapi.Repository.Studentrepository;
+
+@SpringBootApplication
+public class Studentprojectapplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Studentprojectapplication.class, args);
+    }
+
+    @Bean
+    public CommandLineRunner demo(Studentrepository studentrepository) {
+        return args -> {
+            Address address = new Address();
+            address.setStreet("123 Main St");
+            address.setCity("Hyderabad");
+            address.setZipcode("500001");
+
+            Student student = new Student();
+            student.setName("Sankeerthi");
+            student.setAge(24);
+            student.setEmail("sankeerthi@example.com");
+            student.setAddress(address);
+
+            studentrepository.save(student);
+            studentrepository.save(student);
+
+        };
+    }
+}
 
 //var
 
