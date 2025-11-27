@@ -42,9 +42,9 @@ public class Addresses {
 
     // One address can belong to many agency offices
     @OneToMany(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<AgencyOffice> agencyOffices = new ArrayList<>();
+    private List<Agency_Offices> agencyOffices = new ArrayList<>();
 
     // One address can belong to many drivers
     @OneToMany(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Driver> drivers = new ArrayList<>();
+    private List<Drivers> drivers = new ArrayList<>();
 }
