@@ -4,6 +4,7 @@ package com.capg.busticketbooking.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
+import java.util.List;
 
 @Entity
 @Table(name = "bookings")
@@ -17,7 +18,8 @@ public class Bookings {
     @Column(name = "booking_id")
     private Integer bookingId;
 
-    @ManyToOne
+    // Many bookings belong to one trip
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "trip_id", nullable = false)
     @NotNull(message = "Trip cannot be null")
     private Trips trip;
@@ -33,6 +35,11 @@ public class Bookings {
     private Status status = Status.Available;
 
     public enum Status {
-        Available, Booked
+        Available,
+        Booked
     }
+
+    // One booking can have multiple payments
+    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Payments> payments;
 }

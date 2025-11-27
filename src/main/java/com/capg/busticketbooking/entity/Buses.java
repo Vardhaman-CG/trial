@@ -37,8 +37,12 @@ public class Buses {
     @Size(max = 30, message = "Type cannot exceed 30 characters")
     @Column(name = "type", nullable = false, length = 30)
     private String type;
-
+    @ManyToOne
+    @JoinColumn(name = "office_id", nullable = false)
+    @NotNull(message = "Office cannot be null")
+    private Agency_Offices agencyOffice;
     // One Bus can have many Trips
     @OneToMany(mappedBy = "bus", cascade = CascadeType.ALL)
-    private List<Trip> trips;
+    private List<Trips> trips;
 }
+
