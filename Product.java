@@ -24,6 +24,11 @@ public class Product {
 
 ///praharshini
 
+@Override
+    public String toString() {
+        return "Product{" + "id=" + id + ", name='" + name + '\'' + ", price=" + price +"}";
+
+
 
 //sanks
 
@@ -35,3 +40,4 @@ public class Product {
 
 
 //pranav
+
