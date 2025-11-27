@@ -20,7 +20,7 @@ public class Bookings {
     @ManyToOne
     @JoinColumn(name = "trip_id", nullable = false)
     @NotNull(message = "Trip cannot be null")
-    private Trip trip;
+    private Trips trip;
 
     @NotNull(message = "Seat number is required")
     @Min(value = 1, message = "Seat number must be at least 1")
