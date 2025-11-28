@@ -23,5 +23,9 @@ public class AddressesDTO {
         private List<Integer> customerIds;
         private List<Integer> agencyOfficeIds;
         private List<Integer> driverIds;
+
+
+
+
     }
 
