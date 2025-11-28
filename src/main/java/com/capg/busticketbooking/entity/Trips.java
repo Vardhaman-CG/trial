@@ -18,6 +18,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
  
+
+ //trips
 @Entity
 @Table(name = "trips")
 @Data

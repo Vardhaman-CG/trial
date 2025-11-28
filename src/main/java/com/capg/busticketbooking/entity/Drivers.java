@@ -21,6 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name="drivers")
 
+//driver
 public class Drivers {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
