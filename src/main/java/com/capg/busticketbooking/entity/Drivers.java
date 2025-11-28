@@ -41,7 +41,7 @@ public class Drivers {
 	
 	@ManyToOne
 	@JoinColumn(name = "office_id", referencedColumnName = "office_id")
-	private Agency_offices office_id;
+	private Agency_Offices office_id;
 	
 	@ManyToOne
 	@JoinColumn(name="address_id")
