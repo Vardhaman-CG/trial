@@ -38,6 +38,8 @@ public class Customer {
     @JoinColumn(name = "address_id")
     private Addresses address;
 
+
+
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Payments> payments = new ArrayList<>();
 
