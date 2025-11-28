@@ -9,7 +9,8 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaymentDTO {
+//paymentsdto
+public class PaymentsDTO {
 
     private Integer paymentId;
 
@@ -21,5 +22,12 @@ public class PaymentDTO {
 
     private LocalDateTime paymentDate;
 
-    private String paymentStatus; // or use enum if you want strict typing
+    private PaymentStatus paymentStatus;
+
+    public enum PaymentStatus {
+        Success, Failed
+    }
+
+
+
 }

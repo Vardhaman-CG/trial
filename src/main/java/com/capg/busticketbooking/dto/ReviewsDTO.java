@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+//reviewsdto
 public class ReviewsDTO {
 
     private Integer reviewId;
