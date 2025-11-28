@@ -49,10 +49,10 @@ public class Customer {
     private Addresses address;
 
     // One customer can make many payments
-    @OneToMany(mappedBy = "customer_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Payments> payments = new ArrayList<>();
 
     // One customer can write many reviews
-    @OneToMany(mappedBy = "customer_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reviews> reviews = new ArrayList<>();
 }
