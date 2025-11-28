@@ -49,7 +49,7 @@ public class Addresses {
     // One address can belong to many customers
     @OneToMany(mappedBy = "address_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Customer> customers = new ArrayList<>();
-
+///  new  address
     // One address can belong to many agency offices
     @OneToMany(mappedBy = "office_address_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Agency_Offices> agencyOffices = new ArrayList<>();
