@@ -32,22 +32,22 @@ public class Addresses {
     private String address;
 
     @NotBlank(message = "City cannot be blank")
-    @Size(max = 100, message = "City must not exceed 100 characters")
+    @Size(max = 255, message = "City must not exceed 255 characters")
     @Column(nullable = false)
     private String city;
 
     @NotBlank(message = "State cannot be blank")
-    @Size(max = 100, message = "State must not exceed 100 characters")
+    @Size(max = 255, message = "State must not exceed 255 characters")
     @Column(nullable = false)
     private String state;
 
     @NotBlank(message = "Zip code cannot be blank")
-    @Size(max = 20, message = "Zip code must not exceed 20 characters")
+    @Size(max = 10, message = "Zip code must not exceed 10 characters")
     @Column(name = "zip_code", nullable = false)
     private String zipCode;
 
     // One address can belong to many customers
-    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "address_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Customer> customers = new ArrayList<>();
 
     // One address can belong to many agency offices
@@ -55,6 +55,6 @@ public class Addresses {
     private List<Agency_Offices> agencyOffices = new ArrayList<>();
 
     // One address can belong to many drivers
-    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "address_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Drivers> drivers = new ArrayList<>();
 }
