@@ -44,6 +44,6 @@ public class Payments {
     private PaymentStatus paymentStatus;
 
     public enum PaymentStatus {
-        Success, Failed
+        SUCCESS, FAILED
     }
 }
