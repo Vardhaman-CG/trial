@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+//paymentsdto
 public class PaymentsDTO {
 
     private Integer paymentId;
