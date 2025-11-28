@@ -1,4 +1,5 @@
 
+
 package com.capg.busticketbooking.entity;
 
 import jakarta.persistence.*;
