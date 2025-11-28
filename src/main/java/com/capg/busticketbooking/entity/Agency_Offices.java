@@ -15,26 +15,30 @@ public class Agency_Offices {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer office_id;
+    @Column(name = "office_id")
+    private Integer officeId;
 
     @ManyToOne
     @JoinColumn(name = "agency_id", nullable = false)
-    private Agencies agency_id;
+    private Agencies agency;
 
-    @NotBlank(message = "Office email is required")
-    @Email(message = "Invalid office email format")
-    @Size(max = 100, message = "Office email must be less than 100 characters")
-    private String office_mail;
+    @NotBlank
+    @Email
+    @Size(max = 100)
+    @Column(name = "office_mail")
+    private String officeMail;
 
-    @NotBlank(message = "Office contact person name is required")
-    @Size(max = 50, message = "Office contact person name must be less than 50 characters")
-    private String office_contact_person_name;
+    @NotBlank
+    @Size(max = 50)
+    @Column(name = "office_contact_person_name")
+    private String officeContactPersonName;
 
-    @NotBlank(message = "Office contact number is required")
-    @Pattern(regexp = "^[0-9]{10}$", message = "Office contact number must be exactly 10 digits")
-    private String office_contact_number;
+    @NotBlank
+    @Pattern(regexp = "^[0-9]{10}$")
+    @Column(name = "office_contact_number")
+    private String officeContactNumber;
 
     @ManyToOne
     @JoinColumn(name = "office_address_id", nullable = false)
-    private Addresses office_address_id;
+    private Addresses officeAddress;
 }
