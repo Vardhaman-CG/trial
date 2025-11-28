@@ -19,30 +19,26 @@ public class Buses {
     @Column(name = "bus_id")
     private Integer busId;
 
-    @NotNull(message = "Office ID cannot be null")
-    @Column(name = "office_id", nullable = false)
-    private Integer officeId;
-
-    @NotBlank(message = "Registration number is required")
-    @Size(max = 20, message = "Registration number cannot exceed 20 characters")
+    @NotBlank
+    @Size(max = 20)
     @Column(name = "registration_number", nullable = false, length = 20)
     private String registrationNumber;
 
-    @NotNull(message = "Capacity is required")
-    @Min(value = 1, message = "Capacity must be at least 1")
+    @NotNull
+    @Min(1)
     @Column(name = "capacity", nullable = false)
     private Integer capacity;
 
-    @NotBlank(message = "Type is required")
-    @Size(max = 30, message = "Type cannot exceed 30 characters")
+    @NotBlank
+    @Size(max = 30)
     @Column(name = "type", nullable = false, length = 30)
     private String type;
+
     @ManyToOne
     @JoinColumn(name = "office_id", nullable = false)
-    @NotNull(message = "Office cannot be null")
     private Agency_Offices agencyOffice;
+
     // One Bus can have many Trips
     @OneToMany(mappedBy = "bus", cascade = CascadeType.ALL)
     private List<Trips> trips;
 }
-
