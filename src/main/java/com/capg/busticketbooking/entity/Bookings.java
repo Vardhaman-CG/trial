@@ -42,4 +42,6 @@ public class Bookings {
     // One booking can have multiple payments
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Payments> payments;
+
+
 }
