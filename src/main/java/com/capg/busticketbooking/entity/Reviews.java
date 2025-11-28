@@ -40,6 +40,7 @@ public class Reviews {
     @Size(max = 1000, message = "Comment must not exceed 1000 characters")
     private String comment;
 
+
     @NotNull(message = "Review date must not be null")
     @PastOrPresent(message = "Review date cannot be in the future")
     private LocalDateTime reviewDate;
