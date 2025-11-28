@@ -1,38 +1,46 @@
 package com.capg.busticketbooking.entity;
 
-import jakarta.persistence.*;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "drivers")
+@Table(name="drivers")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Drivers {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "driver_id", nullable = false)
+    @Column(name="driver_id", nullable=false)
     private Integer driverId;
 
-    @Column(name = "license_number", nullable = false, length = 20)
+    @Column(name="license_number", nullable=false, length=20)
     private String licenseNumber;
 
-    @Column(name = "name", nullable = false, length = 255)
+    @Column(name="name", nullable=false, length=255)
     private String name;
 
-    @Column(name = "phone", nullable = false, length = 15)
+    @Column(name="phone", nullable=false, length=15)
     private String phone;
 
-    // Many drivers belong to one agency office
     @ManyToOne
-    @JoinColumn(name = "office_id", referencedColumnName = "office_id", nullable = false)
+    @JoinColumn(name = "office_id", referencedColumnName = "office_id")
     private Agency_Offices office;
 
-    // Many drivers belong to one address
     @ManyToOne
-    @JoinColumn(name = "address_id", referencedColumnName = "address_id", nullable = false)
+    @JoinColumn(name="address_id")
     private Addresses address;
 }
