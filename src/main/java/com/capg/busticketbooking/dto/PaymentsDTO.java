@@ -1,0 +1,33 @@
+package com.capg.busticketbooking.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+//paymentsdto
+public class PaymentsDTO {
+
+    private Integer paymentId;
+
+    private Integer bookingId;
+
+    private Integer customerId;
+
+    private Double amount;
+
+    private LocalDateTime paymentDate;
+
+    private PaymentStatus paymentStatus;
+
+    public enum PaymentStatus {
+        Success, Failed
+    }
+
+
+
+}
