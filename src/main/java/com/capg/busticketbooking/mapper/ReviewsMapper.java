@@ -8,11 +8,11 @@ public class ReviewsMapper {
         if (e==null) return null;
         ReviewsDTO dto = new ReviewsDTO();
         dto.setReviewId(e.getReviewId());
-        dto.setCustomerId(e.getCustomer()!=null?e.getCustomer().getCustomerId():null);
-        dto.setTripId(e.getTrip()!=null?e.getTrip().getTripId():null);
         dto.setRating(e.getRating());
         dto.setComment(e.getComment());
         dto.setReviewDate(e.getReviewDate());
+        if (e.getCustomer() != null) dto.setCustomer(CustomerMapper.toDTO(e.getCustomer()));
+        if (e.getTrip() != null) dto.setTrip(TripsMapper.toDTO(e.getTrip()));
         return dto;
     }
     public static Reviews toEntity(ReviewsDTO dto){
@@ -25,4 +25,3 @@ public class ReviewsMapper {
         return e;
     }
 }
-

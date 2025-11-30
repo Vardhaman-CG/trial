@@ -8,8 +8,6 @@ public class PaymentsMapper {
         if (e==null) return null;
         PaymentsDTO dto = new PaymentsDTO();
         dto.setPaymentId(e.getPaymentId());
-        dto.setBookingId(e.getBooking()!=null?e.getBooking().getBookingId():null);
-        dto.setCustomerId(e.getCustomer()!=null?e.getCustomer().getCustomerId():null);
         dto.setAmount(e.getAmount());
         dto.setPaymentDate(e.getPaymentDate());
         if (e.getPaymentStatus() != null) {
@@ -19,6 +17,9 @@ public class PaymentsMapper {
                 dto.setPaymentStatus(null);
             }
         } else dto.setPaymentStatus(null);
+        // nested objects
+        if (e.getBooking() != null) dto.setBooking(BookingsMapper.toDTO(e.getBooking()));
+        if (e.getCustomer() != null) dto.setCustomer(CustomerMapper.toDTO(e.getCustomer()));
         return dto;
     }
     public static Payments toEntity(PaymentsDTO dto){

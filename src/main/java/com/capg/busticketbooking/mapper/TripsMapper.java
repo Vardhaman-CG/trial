@@ -12,17 +12,21 @@ public class TripsMapper {
         if (e==null) return null;
         TripsDTO dto = new TripsDTO();
         dto.setTripId(e.getTripId());
-        dto.setBoardingAddressId(e.getBoardingAddress()!=null?e.getBoardingAddress().getAddressId():null);
-        dto.setDroppingAddressId(e.getDroppingAddress()!=null?e.getDroppingAddress().getAddressId():null);
+        // Do not expose related entity IDs in responses — only nested objects
         dto.setDepartureTime(e.getDepartureTime());
         dto.setArrivalTime(e.getArrivalTime());
         dto.setAvailableSeats(e.getAvailableSeats());
         dto.setFare(e.getFare());
         dto.setTripDate(e.getTripDate());
-        dto.setRouteId(e.getRoute()!=null?e.getRoute().getRouteId():null);
-        dto.setBusId(e.getBus()!=null?e.getBus().getBusId():null);
-        dto.setDriver1Id(e.getDriver1()!=null?e.getDriver1().getDriverId():null);
-        dto.setDriver2Id(e.getDriver2()!=null?e.getDriver2().getDriverId():null);
+
+        // populate nested DTOs for responses
+        if (e.getBoardingAddress() != null) dto.setBoardingAddress(AddressesMapper.toDTO(e.getBoardingAddress()));
+        if (e.getDroppingAddress() != null) dto.setDroppingAddress(AddressesMapper.toDTO(e.getDroppingAddress()));
+        if (e.getRoute() != null) dto.setRoute(RoutesMapper.toDTO(e.getRoute()));
+        if (e.getBus() != null) dto.setBus(BusesMapper.toDTO(e.getBus()));
+        if (e.getDriver1() != null) dto.setDriver1(DriversMapper.toDTO(e.getDriver1()));
+        if (e.getDriver2() != null) dto.setDriver2(DriversMapper.toDTO(e.getDriver2()));
+
         return dto;
     }
     public static Trips toEntity(TripsDTO dto){

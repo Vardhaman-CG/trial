@@ -8,7 +8,6 @@ public class BookingsMapper {
         if (e==null) return null;
         BookingsDTO dto = new BookingsDTO();
         dto.setBookingId(e.getBookingId());
-        dto.setTripId(e.getTrip()!=null?e.getTrip().getTripId():null);
         dto.setSeatNumber(e.getSeatNumber());
         // map enum from entity to DTO
         if (e.getStatus() != null) {
@@ -21,6 +20,9 @@ public class BookingsMapper {
         } else {
             dto.setStatus(null);
         }
+        // nested objects
+        if (e.getTrip() != null) dto.setTrip(TripsMapper.toDTO(e.getTrip()));
+        if (e.getPayments() != null) dto.setPayments(e.getPayments().stream().map(PaymentsMapper::toDTO).toList());
         return dto;
     }
     public static Bookings toEntity(BookingsDTO dto){
