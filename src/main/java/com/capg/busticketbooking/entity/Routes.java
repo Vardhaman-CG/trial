@@ -40,6 +40,6 @@ public class Routes {
     private Integer duration;
 
     // One Route can have many Trips
-//    @OneToMany(mappedBy = "trip_id", cascade = CascadeType.ALL)
-//    private List<Trips> trips;
+    @OneToMany(mappedBy = "route", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<com.capg.busticketbooking.entity.Trips> trips = new ArrayList<>();
 }

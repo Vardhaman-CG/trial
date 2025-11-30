@@ -36,15 +36,15 @@ public class Addresses {
     @Column(name = "zip_code", nullable = false)
     private String zipCode;
 
-    // One address can belong to many customers
-    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true)
+    // One address can belong to many customers (Customers are children)
+    @OneToMany(mappedBy = "address")
     private List<Customer> customers = new ArrayList<>();
-///  new  address
+
     // One address can belong to many agency offices
-    @OneToMany(mappedBy = "officeAddress", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "officeAddress")
     private List<Agency_Offices> agencyOffices = new ArrayList<>();
 
     // One address can belong to many drivers
-    @OneToMany(mappedBy = "address_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "address")
     private List<Drivers> drivers = new ArrayList<>();
 }

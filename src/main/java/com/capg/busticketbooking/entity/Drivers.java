@@ -15,11 +15,11 @@ public class Drivers {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	@Column(name="driver_id",nullable=false)
-	private Integer driver_id;
-	
+	private Integer driverId;
+
 	@Column(name="license_number",nullable=false,length=20)
-	private String license_number;
-	
+	private String licenseNumber;
+
 	@Column(name="name",nullable=false,length=255)
 	private String name;
 	
@@ -29,10 +29,10 @@ public class Drivers {
 	
 	@ManyToOne
 	@JoinColumn(name = "office_id", referencedColumnName = "office_id")
-	private Agency_Offices office_id;
-	
+	private Agency_Offices office;
+
 	@ManyToOne
 	@JoinColumn(name="address_id")
-	private Addresses address_id;
+	private Addresses address;
 
 }

@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "agency_offices")
 @Data
@@ -18,9 +21,6 @@ public class Agency_Offices {
     @Column(name = "office_id")
     private Integer officeId;
 
-    @ManyToOne
-    @JoinColumn(name = "agency_id", nullable = false)
-    private Agencies agency;
 
     @NotBlank
     @Email
@@ -39,6 +39,16 @@ public class Agency_Offices {
     private String officeContactNumber;
 
     @ManyToOne
+    @JoinColumn(name = "agency_id", nullable = false)
+    private Agencies agency;
+
+    @ManyToOne
     @JoinColumn(name = "office_address_id", nullable = false)
     private Addresses officeAddress;
+
+    @OneToMany(mappedBy = "agencyOffice", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Buses> buses = new ArrayList<>();
+
+    @OneToMany(mappedBy = "office", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Drivers> drivers = new ArrayList<>();
 }

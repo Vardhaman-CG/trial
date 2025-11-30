@@ -2,6 +2,7 @@ package com.capg.busticketbooking.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -71,8 +72,9 @@ public class Trips {
 
     // Reverse relationships
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Bookings> bookings;
+    private List<Bookings> bookings = new ArrayList<>();
 
-//     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
-//     private List<Reviews> reviews;
+    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<com.capg.busticketbooking.entity.Reviews> reviews = new ArrayList<>();
+
 }

@@ -34,7 +34,7 @@ public class Buses {
     @Column(name = "type", nullable = false, length = 30)
     private String type;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "office_id", nullable = false)
     private Agency_Offices agencyOffice;
 
