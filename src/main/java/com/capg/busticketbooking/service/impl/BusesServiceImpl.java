@@ -2,8 +2,10 @@ package com.capg.busticketbooking.service.impl;
 
 import com.capg.busticketbooking.dto.BusesDTO;
 import com.capg.busticketbooking.entity.Buses;
+import com.capg.busticketbooking.entity.Agency_Offices;
 import com.capg.busticketbooking.mapper.BusesMapper;
 import com.capg.busticketbooking.repository.BusesRepository;
+import com.capg.busticketbooking.repository.Agency_OfficesRepository;
 import com.capg.busticketbooking.service.BusesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,9 +20,19 @@ public class BusesServiceImpl implements BusesService {
     @Autowired
     private BusesRepository busesRepository;
 
+    @Autowired
+    private Agency_OfficesRepository agencyOfficesRepository;
+
     @Override
     public BusesDTO create(BusesDTO dto) {
         Buses e = BusesMapper.toEntity(dto);
+        // ensure new insert
+        e.setBusId(null);
+        // set managed agency office if provided
+        if (dto.getAgencyOfficeId() != null) {
+            Optional<Agency_Offices> officeOpt = agencyOfficesRepository.findById(dto.getAgencyOfficeId());
+            officeOpt.ifPresent(e::setAgencyOffice);
+        }
         Buses saved = busesRepository.save(e);
         return BusesMapper.toDTO(saved);
     }
@@ -33,6 +45,10 @@ public class BusesServiceImpl implements BusesService {
         existing.setRegistrationNumber(dto.getRegistrationNumber());
         existing.setCapacity(dto.getCapacity());
         existing.setType(dto.getType());
+        // update agency office if provided
+        if (dto.getAgencyOfficeId() != null) {
+            agencyOfficesRepository.findById(dto.getAgencyOfficeId()).ifPresent(existing::setAgencyOffice);
+        }
         Buses saved = busesRepository.save(existing);
         return BusesMapper.toDTO(saved);
     }
@@ -52,4 +68,3 @@ public class BusesServiceImpl implements BusesService {
         return busesRepository.findAll().stream().map(BusesMapper::toDTO).collect(Collectors.toList());
     }
 }
-

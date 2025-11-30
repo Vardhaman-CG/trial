@@ -2,9 +2,11 @@ package com.capg.busticketbooking.service.impl;
 
 import com.capg.busticketbooking.dto.BookingsDTO;
 import com.capg.busticketbooking.entity.Bookings;
+import com.capg.busticketbooking.entity.Trips;
 import com.capg.busticketbooking.mapper.BookingsMapper;
 import com.capg.busticketbooking.repository.BookingsRepository;
 import com.capg.busticketbooking.repository.PaymentsRepository;
+import com.capg.busticketbooking.repository.TripsRepository;
 import com.capg.busticketbooking.service.BookingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,9 +25,21 @@ public class BookingsServiceImpl implements BookingsService {
     @Autowired
     private PaymentsRepository paymentsRepository;
 
+    @Autowired
+    private TripsRepository tripsRepository;
+
     @Override
     public BookingsDTO create(BookingsDTO dto) {
+        if (dto == null || dto.getTripId() == null) return null;
+        Optional<Trips> tripOpt = tripsRepository.findById(dto.getTripId());
+        if (!tripOpt.isPresent()) return null;
+        Trips trip = tripOpt.get();
+
         Bookings e = BookingsMapper.toEntity(dto);
+        // ensure new insert
+        e.setBookingId(null);
+        // set managed Trip entity
+        e.setTrip(trip);
         Bookings saved = bookingsRepository.save(e);
         return BookingsMapper.toDTO(saved);
     }

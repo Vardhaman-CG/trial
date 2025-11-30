@@ -23,9 +23,11 @@ public class BusesController {
     private BusesRepository busesRepository;
 
     @PostMapping
-    public ResponseEntity<String> create(@RequestBody BusesDTO dto){
-        busesService.create(dto);
-        return ResponseEntity.ok("String: Record Created Successfully");
+    public ResponseEntity<BusesDTO> create(@RequestBody BusesDTO dto){
+        if (dto.getAgencyOfficeId() == null) return ResponseEntity.badRequest().build();
+        BusesDTO created = busesService.create(dto);
+        if (created == null) return ResponseEntity.badRequest().build();
+        return ResponseEntity.ok(created);
     }
 
     @PutMapping("/{id}")

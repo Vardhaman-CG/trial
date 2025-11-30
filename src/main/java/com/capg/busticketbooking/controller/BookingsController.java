@@ -17,7 +17,9 @@ public class BookingsController {
 
     @PostMapping
     public ResponseEntity<BookingsDTO> create(@RequestBody BookingsDTO dto){
-        return ResponseEntity.ok(bookingsService.create(dto));
+        BookingsDTO created = bookingsService.create(dto);
+        if (created == null) return ResponseEntity.badRequest().build();
+        return ResponseEntity.ok(created);
     }
 
     @PutMapping("/{id}")
@@ -45,4 +47,3 @@ public class BookingsController {
         return ResponseEntity.ok(bookingsService.getAll());
     }
 }
-
