@@ -26,7 +26,7 @@ public interface TripsRepository extends JpaRepository<Trips, Integer> {
     @Query(value = "SELECT t.* FROM trips t JOIN addresses a1 ON t.boarding_address_id = a1.address_id JOIN addresses a2 ON t.dropping_address_id = a2.address_id JOIN buses b ON t.bus_id = b.bus_id WHERE LOWER(a1.city) = LOWER(:fromCity) AND LOWER(a2.city) = LOWER(:toCity) AND DATE(t.trip_date) = :tripDate", nativeQuery = true)
     List<Trips> findByFromToAndDate(@Param("fromCity") String fromCity, @Param("toCity") String toCity, @Param("tripDate") String tripDate);
 
-    // Combined search by from,to,date and bus type
+    // Combined search by from,to,date and bus ty2pe
     @Query(value = "SELECT t.* FROM trips t JOIN addresses a1 ON t.boarding_address_id = a1.address_id JOIN addresses a2 ON t.dropping_address_id = a2.address_id JOIN buses b ON t.bus_id = b.bus_id WHERE LOWER(a1.city) = LOWER(:fromCity) AND LOWER(a2.city) = LOWER(:toCity) AND DATE(t.trip_date) = :tripDate AND LOWER(b.type) = LOWER(:busType)", nativeQuery = true)
     List<Trips> findByFromToDateAndBusType(@Param("fromCity") String fromCity, @Param("toCity") String toCity, @Param("tripDate") String tripDate, @Param("busType") String busType);
 }

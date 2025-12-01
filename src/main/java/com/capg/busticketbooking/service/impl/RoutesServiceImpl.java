@@ -48,9 +48,9 @@ public class RoutesServiceImpl implements RoutesService {
         return routesRepository.findById(id).map(RoutesMapper::toDTO).orElse(null);
     }
 
-    @Override
-    public List<RoutesDTO> getAll() {
-        return routesRepository.findAll().stream().map(RoutesMapper::toDTO).collect(Collectors.toList());
-    }
+        @Override
+        public List<RoutesDTO> getAll() {
+            return routesRepository.findAll().stream().map(RoutesMapper::toDTO).collect(Collectors.toList());
+        }
 }
 
