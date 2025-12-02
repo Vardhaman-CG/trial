@@ -73,4 +73,30 @@ public class ReviewsServiceImpl implements ReviewsService {
     public List<ReviewsDTO> getAll() {
         return reviewsRepository.findAll().stream().map(ReviewsMapper::toDTO).collect(Collectors.toList());
     }
+
+    // New finders using repository queries
+    @Override
+    public List<ReviewsDTO> findByTrip(Integer tripId) {
+        return reviewsRepository.findByTrip_TripId(tripId).stream().map(ReviewsMapper::toDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ReviewsDTO> findByOffice(Integer officeId) {
+        return reviewsRepository.findByOfficeId(officeId).stream().map(ReviewsMapper::toDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ReviewsDTO> findByAgency(Integer agencyId) {
+        return reviewsRepository.findByAgencyId(agencyId).stream().map(ReviewsMapper::toDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ReviewsDTO> findByDriver(Integer driverId) {
+        return reviewsRepository.findByDriverId(driverId).stream().map(ReviewsMapper::toDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ReviewsDTO> findByCustomer(Integer customerId) {
+        return reviewsRepository.findByCustomer_CustomerId(customerId).stream().map(ReviewsMapper::toDTO).collect(Collectors.toList());
+    }
 }

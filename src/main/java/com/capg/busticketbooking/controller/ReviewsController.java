@@ -50,31 +50,26 @@ public class ReviewsController {
     // CSV searches
     @GetMapping("/tripid/{trip_id}")
     public ResponseEntity<List<ReviewsDTO>> findByTrip(@PathVariable Integer trip_id) {
-        List<ReviewsDTO> list = reviewsService.getAll().stream().filter(r->r.getTripId()!=null && r.getTripId().equals(trip_id)).toList();
-        return ResponseEntity.ok(list);
+        return ResponseEntity.ok(reviewsService.findByTrip(trip_id));
     }
 
     @GetMapping("/office/{office_id}")
     public ResponseEntity<List<ReviewsDTO>> findByOffice(@PathVariable Integer office_id) {
-        List<ReviewsDTO> list = reviewsService.getAll().stream().filter(r->false).toList();
-        return ResponseEntity.ok(list);
+        return ResponseEntity.ok(reviewsService.findByOffice(office_id));
     }
 
     @GetMapping("/customerid/{customer_id}")
     public ResponseEntity<List<ReviewsDTO>> findByCustomer(@PathVariable Integer customer_id) {
-        List<ReviewsDTO> list = reviewsService.getAll().stream().filter(r->r.getCustomerId()!=null && r.getCustomerId().equals(customer_id)).toList();
-        return ResponseEntity.ok(list);
+        return ResponseEntity.ok(reviewsService.findByCustomer(customer_id));
     }
 
     @GetMapping("/agency/{agency_id}")
     public ResponseEntity<List<ReviewsDTO>> findByAgency(@PathVariable Integer agency_id) {
-        List<ReviewsDTO> list = reviewsService.getAll().stream().filter(r->false).toList();
-        return ResponseEntity.ok(list);
+        return ResponseEntity.ok(reviewsService.findByAgency(agency_id));
     }
 
     @GetMapping("/driver/{driver_id}")
     public ResponseEntity<List<ReviewsDTO>> findByDriver(@PathVariable Integer driver_id) {
-        List<ReviewsDTO> list = reviewsService.getAll().stream().filter(r->false).toList();
-        return ResponseEntity.ok(list);
+        return ResponseEntity.ok(reviewsService.findByDriver(driver_id));
     }
 }
