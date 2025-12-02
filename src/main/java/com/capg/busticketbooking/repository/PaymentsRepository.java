@@ -22,4 +22,9 @@ public interface PaymentsRepository extends JpaRepository<Payments, Integer> {
 
     // Optional: fetch for checks
     List<Payments> findByBooking_BookingId(Integer bookingId);
+
+    List<Payments> findByBooking_Trip_Bus_AgencyOffice_OfficeId(Integer officeId);
+
+    @Query("select p from Payments p where p.booking.trip.bus.agencyOffice.officeId = :officeId")
+    List<Payments> findByOfficeIdJPQL(@Param("officeId") Integer officeId);
 }
