@@ -23,9 +23,10 @@ public class CustomerController {
     private CustomerRepository customerRepository;
 
     @PostMapping
-    public ResponseEntity<String> create(@RequestBody CustomerDTO dto){
-        customerService.create(dto);
-        return ResponseEntity.ok("String: Record Created Successfully");
+    public ResponseEntity<?> create(@RequestBody CustomerDTO dto){
+        CustomerDTO created = customerService.create(dto);
+        if (created == null) return ResponseEntity.badRequest().body("Invalid address id or payload");
+        return ResponseEntity.ok(created);
     }
 
     @PutMapping("/{id}")
