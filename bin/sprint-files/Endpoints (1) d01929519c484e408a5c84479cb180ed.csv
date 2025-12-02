@@ -1,0 +1,89 @@
+﻿Path URL,Description,Entity,HTTP Methods,Success Response
+/api/trips/{trip_id},Remove trip details by trip_id.,Trips,DELETE,String: Record Deleted Successfully
+/api/customers,Search all Customers.,Customers,GET,"Collection of Customers
+  "
+/api/routes,Search all Routes.,Routes,GET,Collection of Routes.
+/api/customers/update/{id}/email,Update email of Customer,Customers,PUT," Customer
+  "
+ /api/routes,Add new Route.,Routes,POST,"String: Record Created Successfully
+  "
+/api/reviews/{review_id},Search review by review_id.,Reviews,GET,Review object.
+ /api/agencies/offices/{office_id}  ,Remove office details by office_id.,Agency,DELETE,String: Record Deleted Successfully.
+/api/payment,Add new Payment details.,payment,POST,"String: Record Created Successfully
+  "
+,,,,
+"/api/store/bus_type/{type}/trip_date/{trip_date}
+  ",Search trips by bus type and trip_date,Trips,GET,"Collection of Staff
+  "
+/api/trips,Add new trip details.,Trips,POST,String: Record Created Successfully
+/api/reviews,Add new review.,Reviews,POST,"String: Record Created Successfully
+  "
+"/api/agencies/{agency_id}
+  ",Update Agency details by agency_id,Agency,PUT,"String: Record Updated Successfully.
+  "
+"/api/agencies
+  ",Add new Agency details in DB.,Agency,POST,"String: Record Created Successfully
+  "
+/api/reviews/tripid/{trip_id},Search reviews by trip_id.,Reviews,GET,Collection of reviews.
+/api/reviews/office/{office_id},Search reviews by office_id.,Reviews,GET,Collection of reviews.
+"/api/customers/email/{email}
+  ",Search Customers by email.,Customers,GET,Collection of Customers.
+/api/payment/{payment_id},Search payment details by payment_id.,payment,GET,Payment Object.
+ /api/agencies/offices/{office_id},Search office by office_id,Agency,GET,Office object.
+/api/trips/{from_city}/{to_city}/{trip_date}/{bus_type},"Search trips details by from_city, to_city, trip_date and bus type.",Trips,GET,Collection of trips.
+/api/buses/office/{office_id},Search all buses details by office_id.,Buses,GET," Collection of Buses
+  "
+/api/trips/from_city/{from_city},Search trips details by from_city.,Trips,GET,Collection of trips.
+/api/routes/{route_id},Search Route by route_id.,Routes,GET,Route Object
+/api/payment/office/{office_id},Search payment details by agency_id.,payment,GET,Collection of payments.
+/api/reviews/customerid/{customer_id},Search reviews by customer_id.,Reviews,GET,Collection of reviews.
+/api/customers/country/{country},Search Customers by Country,Customers,GET,"Collection of Customers with Address
+  "
+/api/payment,Search all payment details.,payment,GET,Collection of payments.
+/api/buses,Update bus details.,Buses,PUT,String: Record Updated Successfully.
+/api/trips/{from_city}/{to_city}/{trip_date},"Search trips details by from_city, to_city and trip_date",Trips,GET,Collection of trips.
+/api/agencies/{agency_id},Search Agency details by agency_id,Agency,GET,Agency Object
+,,Buses,,
+"/api/buses
+  ",Search all bus details.,Buses,GET,Collection of buses.
+/api/routes/tocity/{to_city},Search Routes by to_city,Routes,GET,Collection of Routes.
+/api/reviews/agency/{agency_id},Search reviews by agency_id.,Reviews,GET,Collection of reviews.
+ /api/agencies/offices/{office_id},Update Office details by office_id.,Agency,PUT,String: Record Updated Successfully.
+/api/customers/city/{city),Search Customers by City,Customers,GET,Collection of Customers.
+/api/buses,Add new bus details.,Buses,POST,"String: Record Created Successfully
+  "
+"/api/routes/{from_city}/{to_city}
+  ",Search Route by from_city and to_city.,Routes,GET,Route Object.
+/api/trips/trip_date/{trip_date},Search trips details by trip_date,Trips,GET,Collection of trips.
+/api/payment/agency/{agency_id},Search payment details by agency_id.,payment,GET,Collection of payments.
+/api/reviews/driver/{driver_id},Search reviews by driver_id.,Reviews,GET,Collection of reviews.
+/api/customers,Update customer details.,Customers,PUT,String: Record Updated Successfully
+/api/trips,Update trip details.,Trips,PUT,String: Record Updated Successfully
+/api/agencies,Search all agencies details.,Agency,GET,Collection of agencies.
+/api/customers/{customer_id},Search Customer by customer_id.,Customers,GET,Customer Object.
+"/api/reviews
+  ",Search all reviews.,Reviews,GET,Collection of reviews.
+/api/customers/state/{state),Search Customer by State.,Customers,GET,Collection of Customers.
+/api/trips,Search all trips details.,Trips,GET,Collection of trips.
+/api/trips/to_city/{to_city},Search trips details by to_city.,Trips,GET,Collection of trips.
+/api/customers,Add new Customer Object in DB,Customers,POST,"String: Record Created Successfully
+  "
+  /api/agencies/offices/{agency_id},Search all offices of an Agency by agency_id,Agency,GET,Collection of offices.
+/api/reviews,Update review details.,Reviews,PUT,String: Record Updated Successfully.
+/api/reviews,Remove review details.,Reviews,DELETE,String: Record Deleted Successfully.
+,,Reviews,,
+/api/agencies/offices,Serach all offices.,Agency,GET,Collection of offices.
+/api/buses/{bus_id},Search bus details by bus_id.,Buses,GET,Bus Object.
+/api/agencies/{agency_id},Remove Agency details.,Agency,DELETE,String: Record Deleted Successfully.
+/api/payment/customer/{customer_id},Search payment details by customer_id.,payment,GET,Collection of payments.
+/api/agencies/addoffice,Add new branch office of an agency.,Agency,POST,String: Record Created Successfully.
+,,payment,,
+/api/customers/phone,Search Customers by phone.,Customers,GET,Collection of Customers.
+/api/trips/bus_type/{type},Search trips bus type. ,Trips,GET,Collection trips.
+/api/customers/update/{id}/ln,Update last name of Customer,Customers,PUT,"Customer
+  "
+/api/buses/{bus_id},Remove bus details by bus_id.,Buses,DELETE,String: Record Deleted Successfully.
+/api/routes,Update Route details.,Routes,PUT,String: Record Updated Successfully
+/api/routes/{route_id},Remove Route.,Routes,DELETE,String: Record Deleted Successfully.
+/api/routes/fromcity/{from_city},Search Routes by from_city.,Routes,GET,Collection of Routes. 
+/api/trips/{trip_id},Search trip details by trip_id.,Trips,GET,Trip Object.
